@@ -9,14 +9,16 @@ const url = require("url");
 const REACT_URL =
   process.env.ELECTRON_START_URL ||
   url.format({
-    pathname: path.join(__dirname, "/../build/index.html"),
+    pathname: path.join(__dirname, "/../index.html"),
     protocol: "file:",
     slashes: true
   });
 
+let win: Electron.BrowserWindow | null;
+
 function createWindow() {
   // Create the browser window.
-  let win = new BrowserWindow({
+  win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
@@ -31,14 +33,12 @@ function createWindow() {
   //win.loadFile("index.html");
   // Open the DevTools.
   win.webContents.openDevTools();
-  win.webContents// Emitted when the window is closed.
-  .win
-    .on("closed", () => {
-      // Dereference the window object, usually you would store windows
-      // in an array if your app supports multi windows, this is the time
-      // when you should delete the corresponding element.
-      win = null;
-    });
+  win.on("closed", () => {
+    // Dereference the window object, usually you would store windows
+    // in an array if your app supports multi windows, this is the time
+    // when you should delete the corresponding element.
+    win = null;
+  });
 }
 
 app.on("ready", createWindow);
