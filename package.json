@@ -78,7 +78,8 @@
     "backend-dev-linux": "npm run backend-ts-build && ELECTRON_START_URL=http://localhost:3000 electron ./build/electron.js",
     "backend-dev": "npm run backend-ts-build && set ELECTRON_START_URL=http://localhost:3000 && electron ./build/electron.js",
     "backend-ts-build": "tsc --build tsconfig.electron.json",
-    "backend-build": "build --win -c.extraMetadata.main=build/electron.js"
+    "backend-build": "build --win -c.extraMetadata.main=build/electron.js",
+    "lint": "tslint -c tslint.electron.json -p tsconfig.json"
   },
   "eslintConfig": {
     "extends": "react-app"
