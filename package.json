@@ -68,18 +68,23 @@
   },
   "devDependencies": {
     "electron": "^5.0.1",
-    "electron-builder": "^20.40.2"
+    "electron-builder": "^20.40.2",
+    "mocha": "^6.1.4",
+    "spectron": "^5.0.0"
   },
   "scripts": {
     "build": "npm run frontend-build && npm run backend-ts-build && npm run backend-build",
+    "build-test": "npm run frontend-build && npm run backend-ts-build ",
     "react-dev": "node scripts/start.js",
     "frontend-build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "backend-dev-linux": "npm run backend-ts-build && ELECTRON_START_URL=http://localhost:3000 electron ./build/electron.js",
     "backend-dev": "npm run backend-ts-build && set ELECTRON_START_URL=http://localhost:3000 && electron ./build/electron.js",
-    "backend-ts-build": "tsc --build tsconfig.electron.json",
+    "backend-ts-build": " tsc --build tsconfig.electron.json",
     "backend-build": "build --win -c.extraMetadata.main=build/electron.js",
-    "lint": "tslint -c tslint.electron.json -p tsconfig.json"
+    "lint": "tslint -c tslint.electron.json -p tsconfig.json",
+    "test-backend": "mocha",
+    "test-backend-rebuild": "npm run build && mocha"
   },
   "eslintConfig": {
     "extends": "react-app"
