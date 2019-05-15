@@ -1,0 +1,54 @@
+{
+  "name": "electron-boilerplate",
+  "version": "0.1.0",
+  "description": "This is a electron boilerplate with react",
+  "main": "./public/electron.js",
+  "homepage": "./",
+  "scripts": {
+    "react-dev": "react-scripts start",
+    "build": "react-scripts build",
+    "electron-dev-linux": "ELECTRON_START_URL=http://localhost:3000 electron .",
+    "electron-dev": "set ELECTRON_START_URL=http://localhost:3000 && electron .",
+    "preelectron-pack": "npm run build",
+    "electron-pack": "build --win -c.extraMetadata.main=build/electron.js"
+  },
+  "keywords": [
+    "electron",
+    "react"
+  ],
+  "author": "L4B0MB4",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^5.0.1",
+    "electron-builder": "^20.40.2",
+    "typescript": "^3.4.5"
+  },
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "build": {
+    "appId": "com.example.elec",
+    "files": [
+      "backend/**/*",
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  }
+}
