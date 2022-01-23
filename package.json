@@ -19,7 +19,7 @@
   "author": "L4B0MB4",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^7.2.4",
+    "electron": "^11.5.0",
     "electron-builder": "^20.40.2",
     "typescript": "^3.4.5"
   },
